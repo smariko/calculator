@@ -1,4 +1,4 @@
-package com.leszko.calculator;
+package com.mariko.calculator;
 import org.springframework.stereotype.Service;
 
 @Service
