@@ -32,5 +32,13 @@ pipeline {
 				])
 			}
 		}
+		stage("Paranoid test with SonarQube") {
+			steps {
+				sh "./gradlew sonarqube \
+  					-Dsonar.projectKey=Calculator \
+					-Dsonar.host.url=http://localhost:9000 \
+					-Dsonar.login=67a289199a005285d3865117078c6e98e2585c9a"
+			}
+		}
 	}
 }

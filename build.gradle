@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'jacoco'
 	id 'checkstyle'
+	id 'org.sonarqube' version '2.7'
 }
 
 group = 'com.mariko'
