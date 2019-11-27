@@ -36,7 +36,7 @@ pipeline {
 			steps {
 				sh "./gradlew sonarqube \
   					-Dsonar.projectKey=Calculator \
-					-Dsonar.host.url=http://localhost:9000 \
+					-Dsonar.host.url=http://172.17.0.4:9000 \
 					-Dsonar.login=67a289199a005285d3865117078c6e98e2585c9a"
 			}
 		}
