@@ -40,5 +40,15 @@ pipeline {
 					-Dsonar.login=67a289199a005285d3865117078c6e98e2585c9a"
 			}
 		}
+		stage("Packaging") {
+			steps {
+				sh "./gradlew build"
+			}
+		}
+		stage("Docker build") {
+			steps {
+				sh "docker build -t myregistrydomain.com:5000/calculator ."
+			}
+		}
 	}
 }
