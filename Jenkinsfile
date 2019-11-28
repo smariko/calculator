@@ -50,5 +50,10 @@ pipeline {
 				sh "docker build -t myregistrydomain.com:5000/calculator ."
 			}
 		}
+		stage("Docker push") {
+			steps {
+				sh "docker push myregistrydomain.com:5000/calculator"
+			}
+		}
 	}
 }
