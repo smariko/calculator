@@ -1,14 +1,14 @@
 # Calculator
-This a test calculator applicattor for continuous delivery tutorial purposes.
+This a test calculator application for continuous delivery tutorial purposes.
 
-The calculator launch a webservice on localhost:8080, take a function sum and accept two integer paramaters a, b.
+The calculator launch a webservice on localhost:8080, takes a function sum and accepts two integers paramater a, b.
 
 It gives in result the sum of a and b.
 
 
 ## Features
 - Webservice :)
-- Sum two integer, wow :) ! Awesome !
+- Sum two integers, wow :) ! Awesome !
 
 ## Getting started
 Prerequisites:
