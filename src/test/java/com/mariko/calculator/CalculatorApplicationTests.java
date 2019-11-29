@@ -6,7 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class CalculatorApplicationTests {
 
-	@Test
+	@Test1
+	void contextLoads() {
+	}
+	@Test2
 	void contextLoads() {
 	}
 
