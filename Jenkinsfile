@@ -65,6 +65,7 @@ pipeline {
 			steps {
 				sleep 60
 				sh "./acceptance_test.sh"
+				sh "./gralew acceptanceTest -Dcalculator.url=http://localhost:8080"
 			}
 		}
 	}
