@@ -8,28 +8,27 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 
 /** Cache config.
 */
 
 @Configuration
 @EnableCaching
+public class CacheConfig {
 
-public class CacheConfig extends CachingConfigurerSupport {
-	
-    private static final String REDIS_ADDRESS = "redis";
-	
-	@Bean
-	public JedisConnectionFactory redisConnectionFactory() {
+    private static final String redisHost = "redis";
 
-	    JedisConnectionFactory redisConnectionFactory = new JedisConnectionFactory();
-	    redisConnectionFactory.setHostName(REDIS_ADDRESS);
-	    redisConnectionFactory.setPort(6379);
-        return 	redisConnectionFactory;
-    }
+    private static final Integer redisPort = 6379;
 
     @Bean
-    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory cf) {
+    public JedisConnectionFactory jedisConnectionFactory() {
+        RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration(redisHost, redisPort);
+        return new JedisConnectionFactory(configuration);
+    }
+
+        @Bean
+	public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory cf) {
 
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
 
@@ -37,8 +36,12 @@ public class CacheConfig extends CachingConfigurerSupport {
         return redisTemplate;
     }
 
+
     @Bean
-    public CacheManager cacheManager(RedisTemplate redisTemplate) {
-        return new RedisCacheManager(redisTemplate);
+    public CacheManager initRedisCacheManager(RedisConnectionFactory factory) {
+        RedisCacheManager.RedisCacheManagerBuilder builder = RedisCacheManager
+                .RedisCacheManagerBuilder.fromConnectionFactory(factory);
+        return builder.build();
     }
+
 }
