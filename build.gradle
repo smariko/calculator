@@ -51,3 +51,7 @@ task acceptanceTest(type: Test) {
 test {
 	exclude '**/acceptance/**'
 }
+
+bootRepackage {
+	executable = true
+}
