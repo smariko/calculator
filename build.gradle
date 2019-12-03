@@ -52,4 +52,6 @@ test {
 	exclude '**/acceptance/**'
 }
 
-bootRepackage.executable = true
+bootJar {
+    mainClassName = 'com.mariko.Application'
+}
