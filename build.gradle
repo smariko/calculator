@@ -52,6 +52,4 @@ test {
 	exclude '**/acceptance/**'
 }
 
-bootRepackage {
-	executable = true
-}
+bootRepackage.executable = true
