@@ -9,14 +9,14 @@ class CalculatorController {
 	@Autowired
 	private Calculator calculator;
 
-	@RequestMapping("/sum")
-	String sum(@RequestParam("a") Integer a,
+	@RequestMapping("/sum", method = GET)
+	public String sum(@RequestParam("a") Integer a,
 			@RequestParam("b") Integer b) {
 		return String.valueOf(calculator.sum(a, b));
 	}
 
-	@RequestMapping("/minus")
-	String minus(@RequestParam("a") Integer a,
+	@RequestMapping("/minus", method = GET)
+	public String minus(@RequestParam("a") Integer a,
 			@RequestParam("b") Integer b) {
 		return String.valueOf(calculator.minus(a, b));
 	}
