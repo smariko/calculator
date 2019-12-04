@@ -1,6 +1,6 @@
 pipeline {
-//	agent {label 'slave-2'}
-	agent any
+	agent {label 'slave-2'}
+//	agent any
 	stages {
 		stage("Compile") {
 			steps {
@@ -13,6 +13,7 @@ pipeline {
 			}
 		}
 		stage("Code coverage") {
+			agent {lable 'slave-1'}
 			steps {
 				sh "./gradlew jacocoTestReport"
 				publishHTML (target: [
@@ -24,6 +25,7 @@ pipeline {
 			}
 		}
 		stage("Static code analysis") {
+			agent {label 'slave-1'}
 			steps {
 				sh "./gradlew checkstyleMain"
 				publishHTML (target: [
@@ -34,6 +36,7 @@ pipeline {
 			}
 		}
 		stage("Paranoid test with SonarQube") {
+			agent {label 'slave-1'}
 			steps {
 				sh "./gradlew sonarqube \
   					-Dsonar.projectKey=Calculator \
