@@ -1,6 +1,11 @@
 pipeline {
-	agent {label 'slave-2'}
+//	agent {label 'slave-2'}
 //	agent any
+	agent {
+		docker {
+			image 'openjdk:8-jdk-alpine'
+		}
+	}
 	stages {
 		stage("Compile") {
 			steps {
