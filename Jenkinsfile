@@ -13,7 +13,7 @@ pipeline {
 			}
 		}
 		stage("Code coverage") {
-			agent {lable 'slave-1'}
+			agent {label 'slave-1'}
 			steps {
 				sh "./gradlew jacocoTestReport"
 				publishHTML (target: [
