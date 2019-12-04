@@ -13,7 +13,6 @@ pipeline {
 			}
 		}
 		stage("Code coverage") {
-			agent {label 'slave-1'}
 			steps {
 				sh "./gradlew jacocoTestReport"
 				publishHTML (target: [
@@ -25,7 +24,6 @@ pipeline {
 			}
 		}
 		stage("Static code analysis") {
-			agent {label 'slave-1'}
 			steps {
 				sh "./gradlew checkstyleMain"
 				publishHTML (target: [
@@ -36,7 +34,6 @@ pipeline {
 			}
 		}
 		stage("Paranoid test with SonarQube") {
-			agent {label 'slave-1'}
 			steps {
 				sh "./gradlew sonarqube \
   					-Dsonar.projectKey=Calculator \
