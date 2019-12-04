@@ -52,6 +52,14 @@ test {
 	exclude '**/acceptance/**'
 }
 
-bootJar {
+/*bootJar {
     mainClassName = 'com.mariko.Application'
+}*/
+
+/*springBoot { 
+    executable = true 
+}*/
+
+bootJar {
+    mainClassName = 'com.mariko.calculator.CalculatorApplication'
 }
