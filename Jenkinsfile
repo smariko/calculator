@@ -79,5 +79,8 @@ pipeline {
 			/* sh "docker stop calculator" */
 			sh "docker-compose down"
 		}
+		failure {
+			mattermostSend "Build failed"
+		}
 	}
 }
