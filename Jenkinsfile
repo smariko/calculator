@@ -79,5 +79,8 @@ pipeline {
 			/* sh "docker stop calculator" */
 			sh "docker-compose down"
 		}
+		failure {
+			mattermostSend(color: "#439FE0", icon: "https://jenkins.io/images/logos/jenkins/jenkins.png", message: Failed, channel: "#test_jenkins", endpoint: "https://im.groupe-creative.fr/creative")
+		}
 	}
 }
