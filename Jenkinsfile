@@ -80,8 +80,7 @@ pipeline {
 			sh "docker-compose down"
 		}
 		failure {
-			mattermostSend channel: '#test_jenkins',
-			color: '#FF0000',
+			mattermostSend channel: color: '#FF0000',
 			message: "The pipeline ${currentBuild.fullDisplayName} failed."
 		}
 	}
