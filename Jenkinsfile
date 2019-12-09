@@ -81,7 +81,7 @@ pipeline {
 		}
 		failure {
 			mattermostSend channel: color: '#FF0000',
-			message: "The pipeline ${currentBuild.fullDisplayName} failed."
+			message: "The pipeline ${currentBuild.fullDisplayName} failed. "
 		}
 	}
 }
